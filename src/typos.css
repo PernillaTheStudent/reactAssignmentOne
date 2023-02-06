@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'rubiklight';
+    src: url('rubik-variablefont_wght-webfont.woff2') format('woff2'),
+        url('rubik-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* font-family: 'Rubik', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+@font-face {
+    font-family: 'pacifico';
+    src: url('./assets/fonts/pacifico-regular-webfont.woff') format('woff2'),
+         url('./assets/fonts/pacifico-regular-webfont.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* font-family: 'Patua One', cursive; */
+/* @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap'); */
+
+/* @font-face {
+    font-family: 'patuaone';
+    src: url('patuaone-regular-webfont.woff2') format('woff2'),
+        url('patuaone-regular-webfont.woff') format('woff'),
+        url('patuaone-regular-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+
+} */

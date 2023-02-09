@@ -32,17 +32,37 @@ const articles = [
 const ArticleComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayAll, setDisplayAll] = useState(false);
-  const [activeArticle, setActiveArticle] = useState('page-0');
+  const [activeArticle, setActiveArticle] = useState('article-1');
+  const [buttonText, setButtonText] = useState("expand");
+  const [title, setTitle] = useState("One: React About");
+  document.title = title;
 
   const handleDisplayAll = () => {
     setDisplayAll(!displayAll);
+    if (displayAll) {
+      setButtonText("expand");
+      setTitle("Show one article");
+      document.title = title;
+    } else {
+      setButtonText("one article");
+      setTitle("Show all articles");
+      document.title = title;
+    }
   };
+
+  const handleArticleDisplay = (artId) => {
+    setCurrentIndex(artId);
+    setActiveArticle(`article-${artId + 1}`);
+    setDisplayAll(false);
+    setTitle(articles[artId].title);
+    document.title = title;
+  }
 
   function getActiveClassName(activeArticle, currentArticle) {
     if (activeArticle === currentArticle) {
-      return 'active'
+      return "active"
     } else {
-      return ''
+      return ""
     }
   }
 
@@ -54,35 +74,28 @@ const ArticleComponent = () => {
     <div id="content-wrapper">
       <div className="header">
         <img className="header-pict" src={faceBubble2} alt="" width="185px" height="auto" />
-        <div className="expand-one" onClick={handleDisplayAll}>Expand</div>
+        <div className="expand-one" onClick={handleDisplayAll}>{buttonText}</div>
       </div>
       <nav>
-        <button className={`page-0 ${getActiveClassName(activeArticle, 'page-0')}`}
+        <button className={`article-1 ${getActiveClassName(activeArticle, 'article-1')}`}
           onClick={() => {
-            setCurrentIndex(0);
-            setActiveArticle('page-0');
-            setDisplayAll(false)
+            handleArticleDisplay(0)
           }}>About</button>
-        <button className={`page-1 ${getActiveClassName(activeArticle, 'page-1')}`}
+        <button className={`article-2 ${getActiveClassName(activeArticle, 'article-2')}`}
           onClick={() => {
-            setCurrentIndex(1);
-            setActiveArticle('page-1');
-            setDisplayAll(false)
+            handleArticleDisplay(1)
           }}>Project</button>
-        <button className={`page-2 ${getActiveClassName(activeArticle, 'page-2')}`}
+        <button className={`article-3 ${getActiveClassName(activeArticle, 'article-3')}`}
           onClick={() => {
-            setCurrentIndex(2);
-            setActiveArticle('page-2');
-            setDisplayAll(false)
+            handleArticleDisplay(2)
           }}>Design</button>
-
       </nav>
       <main className="content">
 
         {!displayAll ? (
           <>
             <div key={articles[currentIndex].id}>
-              <article className={`article-${currentIndex}`}>
+              <article className={`article-${currentIndex + 1}`}>
                 <h1>{articles[currentIndex].title}</h1>
                 <p>{articles[currentIndex].content}</p>
                 {!(articles[currentIndex].picture === "") ?
@@ -108,7 +121,7 @@ const ArticleComponent = () => {
         )}
         <Greeting name="Pernilla Widerberg" />
       </main>
-      <div class="base-element"></div>
+      <div className="base-element"></div>
     </div>
   );
 };

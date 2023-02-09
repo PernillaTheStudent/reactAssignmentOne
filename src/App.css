@@ -107,7 +107,7 @@ main.content {
   text-transform: lowercase;
   background: url("./assets/img/expandEye2.svg") no-repeat;
   background-size: auto;
-  background-position: center 0;
+  background-position: left 0;
   padding-top: 24px;
 }
 
@@ -152,11 +152,11 @@ button.active:hover {
   color: #3448D1;
 }
 
-button.page-0 {
+button.article-1 {
   margin-right: 10px;
 }
 
-button.page-2 {
+button.article-3 {
   margin-left: 10px;
 }
 
